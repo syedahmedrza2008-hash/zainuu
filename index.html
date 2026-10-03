@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Zainab ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts" aria-hidden="true"></div>
+
+  <main>
+    <section class="page intro active" id="page0">
+      <div class="decor top-left">♡</div>
+      <div class="decor top-right">♡</div>
+      <div class="intro-card">
+        <div class="tiny-heart">♥</div>
+        <p class="eyebrow">a little something for you</p>
+        <h1>For My Zainab</h1>
+        <div class="ornament">──── ♥ ────</div>
+        <p class="intro-message">
+          Hey baby.<br><br>
+          I made this little place just for you because there are some things
+          I need you to hear, and I don't ever want you to forget them.
+          So take your time, read everything, and let me say all the things
+          I sometimes can't say properly out loud.
+        </p>
+        <p class="signature">— yours, always</p>
+        <button class="next-button" onclick="goToPage(1)">next <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="page letter-page" id="page1">
+      <div class="letter-shell">
+        <p class="letter-label">letter one</p>
+        <h2>For the days when everything feels too heavy</h2>
+        <div class="letter-box">
+          <div class="letter-content" id="letter1"></div>
+          <span class="cursor" id="cursor1"></span>
+        </div>
+        <button class="heart-button hidden" id="next1" onclick="goToPage(2)" aria-label="Next letter">
+          <span>♥</span><small>next</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="page letter-page" id="page2">
+      <div class="letter-shell">
+        <p class="letter-label">letter two</p>
+        <h2>Because I am so fucking proud of you</h2>
+        <div class="letter-box">
+          <div class="letter-content" id="letter2"></div>
+          <span class="cursor" id="cursor2"></span>
+        </div>
+        <button class="heart-button hidden" id="next2" onclick="goToPage(3)" aria-label="Next letter">
+          <span>♥</span><small>next</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="page letter-page final-page" id="page3">
+      <div class="letter-shell">
+        <p class="letter-label">letter three</p>
+        <h2>I'm sorry, baby</h2>
+        <div class="letter-box">
+          <div class="letter-content" id="letter3"></div>
+          <span class="cursor" id="cursor3"></span>
+        </div>
+        <div class="final-heart hidden" id="finalHeart">♥</div>
+        <p class="final-line hidden" id="finalLine">i'll be here. ❤️</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

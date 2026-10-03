@@ -1,0 +1,325 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --red: #8f0717;
+  --deep-red: #65000d;
+  --soft-red: #b20d22;
+  --black: #090607;
+  --paper: rgba(255, 235, 235, 0.08);
+  --line: rgba(0, 0, 0, 0.25);
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--red);
+}
+
+body {
+  color: var(--black);
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  min-height: 100vh;
+  padding: 5vh 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.08), transparent 25%),
+    radial-gradient(circle at 80% 90%, rgba(0,0,0,.14), transparent 30%),
+    linear-gradient(135deg, var(--red), var(--deep-red));
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.025);
+  transition: opacity .65s ease, transform .65s ease, visibility .65s;
+}
+
+.page.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.intro-card {
+  width: min(720px, 92vw);
+  text-align: center;
+  padding: clamp(35px, 7vw, 75px);
+  border: 1px solid rgba(0,0,0,.22);
+  background: rgba(255,255,255,.055);
+  box-shadow: 0 25px 70px rgba(0,0,0,.2);
+  position: relative;
+}
+
+.tiny-heart {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.eyebrow, .letter-label {
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+}
+
+.intro h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(65px, 11vw, 120px);
+  font-weight: 400;
+  margin: 10px 0;
+  line-height: .95;
+}
+
+.ornament {
+  font-size: 17px;
+  margin: 22px 0;
+  opacity: .8;
+}
+
+.intro-message {
+  font-size: clamp(20px, 2.2vw, 27px);
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.signature {
+  font-family: "Great Vibes", cursive;
+  font-size: 30px;
+  margin: 28px 0 25px;
+}
+
+.next-button {
+  border: 1px solid var(--black);
+  background: var(--black);
+  color: #f8dfe2;
+  padding: 13px 28px;
+  border-radius: 40px;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: 11px;
+  cursor: pointer;
+  transition: transform .25s, background .25s;
+}
+
+.next-button:hover {
+  transform: translateY(-3px);
+  background: #1b1113;
+}
+
+.next-button span {
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.decor {
+  position: absolute;
+  font-size: 120px;
+  opacity: .09;
+  font-family: Georgia, serif;
+}
+
+.top-left { top: 2%; left: 3%; }
+.top-right { bottom: 2%; right: 3%; }
+
+.letter-shell {
+  width: min(1000px, 94vw);
+  height: min(91vh, 850px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.letter-label {
+  margin: 0 0 8px;
+  opacity: .72;
+}
+
+.letter-shell h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 20px;
+  line-height: 1.05;
+}
+
+.letter-box {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: clamp(28px, 4vw, 55px);
+  border: 1px solid rgba(0,0,0,.26);
+  background: rgba(255, 240, 240, .075);
+  box-shadow: inset 0 0 45px rgba(0,0,0,.06), 0 20px 60px rgba(0,0,0,.14);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,.55) transparent;
+}
+
+.letter-box::-webkit-scrollbar {
+  width: 7px;
+}
+
+.letter-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.letter-box::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.55);
+  border-radius: 10px;
+}
+
+.letter-content {
+  white-space: pre-wrap;
+  font-size: clamp(18px, 1.7vw, 23px);
+  line-height: 1.65;
+  letter-spacing: .01em;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--black);
+  margin-left: 2px;
+  vertical-align: -2px;
+  animation: blink .75s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.heart-button {
+  position: absolute;
+  bottom: 1px;
+  right: 4px;
+  width: 86px;
+  height: 86px;
+  border: 0;
+  background: transparent;
+  color: var(--black);
+  cursor: pointer;
+  transform: rotate(-45deg);
+  transition: transform .25s, filter .25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart-button span {
+  position: absolute;
+  font-size: 92px;
+  line-height: 1;
+}
+
+.heart-button small {
+  position: relative;
+  z-index: 2;
+  transform: rotate(45deg);
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.heart-button:hover {
+  transform: rotate(-45deg) scale(1.08);
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,.25));
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: rotate(-45deg) scale(.7);
+}
+
+.heart-button:not(.hidden) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.final-heart {
+  font-size: 55px;
+  margin-top: 12px;
+  animation: pulse 1.4s infinite;
+}
+
+.final-line {
+  font-family: "Great Vibes", cursive;
+  font-size: 38px;
+  margin: 0;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.15); }
+}
+
+/* Floating background hearts */
+.hearts span {
+  position: fixed;
+  bottom: -30px;
+  color: rgba(0,0,0,.13);
+  font-size: 18px;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .page {
+    padding: 3vh 4vw;
+  }
+
+  .intro-card {
+    padding: 35px 22px;
+  }
+
+  .letter-shell {
+    height: 94vh;
+  }
+
+  .letter-shell h2 {
+    margin-bottom: 12px;
+  }
+
+  .letter-box {
+    padding: 24px 18px;
+  }
+
+  .letter-content {
+    font-size: 18px;
+    line-height: 1.58;
+  }
+
+  .heart-button {
+    right: -3px;
+    bottom: -2px;
+  }
+}
